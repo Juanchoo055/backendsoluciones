@@ -23,9 +23,11 @@ app.use('/api', router);
 app.set('port', process.env.PORT || 3000);
 
 
-app.listen(app.get('PORT'), ()=>{
-    console.log('Server on port ' + app.get('port') + ' on dev');
-});
 
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(app.get('port'), () => {
+        console.log('Server on port ' + app.get('port') + ' on dev');
+    });
+}
 
 module.exports = app;
