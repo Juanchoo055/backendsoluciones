@@ -1,0 +1,183 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.5
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 21-07-2021 a las 17:02:35
+-- Versión del servidor: 10.4.14-MariaDB-cll-lve
+-- Versión de PHP: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `u697411700_prueba`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Articulos`
+--
+
+CREATE TABLE `Articulos` (
+  `id` int(11) NOT NULL,
+  `codigo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `categoriaId` int(11) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `Articulos`
+--
+
+INSERT INTO `Articulos` (`id`, `codigo`, `nombre`, `imagen`, `precio`, `estado`, `categoriaId`, `createdAt`, `updatedAt`) VALUES
+(1, '1456', 'Camisa Polo', 'https://images.unsplash.com/photo-1586363090844-099253d6a1cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80', 150000, 1, NULL, '2021-07-21 00:04:54', '2021-07-21 00:07:38'),
+(2, '12', 'Pantalon Dama', 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80', 95000, 1, NULL, '2021-07-21 00:06:33', '2021-07-21 00:06:33'),
+(3, '156', 'Case Iphone', 'https://vettastore.com/wp-content/uploads/2021/02/12-12pro-rosa.png', 95000, 1, NULL, '2021-07-21 01:50:18', '2021-07-21 01:50:18');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Categoria`
+--
+
+CREATE TABLE `Categoria` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `Categoria`
+--
+
+INSERT INTO `Categoria` (`id`, `nombre`, `descripcion`, `estado`, `createdAt`, `updatedAt`) VALUES
+(1, 'Camisas', '', 1, '2021-07-20 23:17:39', '2021-07-20 23:37:19'),
+(2, 'Pantalones', '', 1, '2021-07-20 23:17:53', '2021-07-20 23:37:30'),
+(3, 'Cases Celular', '', 1, '2021-07-20 23:18:04', '2021-07-20 23:37:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `SequelizeMeta`
+--
+
+CREATE TABLE `SequelizeMeta` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `SequelizeMeta`
+--
+
+INSERT INTO `SequelizeMeta` (`name`) VALUES
+('20201218010927-create-usuario.js'),
+('20201218011759-create-categoria.js'),
+('20201218012144-create-articulo.js');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Usuarios`
+--
+
+CREATE TABLE `Usuarios` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `Usuarios`
+--
+
+INSERT INTO `Usuarios` (`id`, `rol`, `nombre`, `password`, `email`, `estado`, `createdAt`, `updatedAt`) VALUES
+(1, '', 'Juan David Giraldo', '$2a$10$JMJbQxWvuCta9S4ItEivuOHdkNEQgTpYk/TR9.4fAeZvcrbeJnCs6', 'prueba@gmail.com', 1, '2021-07-20 22:49:23', '2021-07-20 23:34:43');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `Articulos`
+--
+ALTER TABLE `Articulos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `Categoria`
+--
+ALTER TABLE `Categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `SequelizeMeta`
+--
+ALTER TABLE `SequelizeMeta`
+  ADD PRIMARY KEY (`name`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indices de la tabla `Usuarios`
+--
+ALTER TABLE `Usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `Articulos`
+--
+ALTER TABLE `Articulos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `Categoria`
+--
+ALTER TABLE `Categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `Usuarios`
+--
+ALTER TABLE `Usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `Articulos`
+--
+ALTER TABLE `Articulos`
+  ADD CONSTRAINT `Articulos_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Categoria` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
