@@ -1,0 +1,11 @@
+{
+    "development": {
+        "username": "u697411700_prueba",
+        "password": "Prueba123.*",
+        "database": "u697411700_prueba",
+        "host": "31.170.166.124",
+        "dialect": "mysql",
+        "port": "3306"
+    }
+}
+
