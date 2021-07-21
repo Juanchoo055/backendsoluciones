@@ -1,18 +1,12 @@
 {
     "development": {
-        "username": "u697411700_prueba2",
-        "password": "Prueba123.*",
-        "database": "u697411700_prueba2",
-        "host": "31.170.166.124",
+        "username": "IEuhPRIqud",
+        "password": "EvREfFolR6",
+        "database": "IEuhPRIqud",
+        "host": "remotemysql.com",
         "dialect": "mysql",
         "port": "3306"
-    },
-    "test": {
-        "dialect": "sqlite",
-        "storage": "./database.sqlite3"
-    },
-    "production": {
-        "dialect": "sqlite",
-        "storage": "./database.sqlite3"
     }
 }
+
+
