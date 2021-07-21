@@ -5,3 +5,7 @@
 npm install
 ```
 
+#Servidor
+```
+npm start
+```
