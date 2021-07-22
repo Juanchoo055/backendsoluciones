@@ -6,6 +6,14 @@
         "host": "us-cdbr-east-04.cleardb.com",
         "dialect": "mysql",
         "port": "3306"
+    },
+    "test": {
+        "username": "bcf759cc93301e",
+        "password": "05267e86",
+        "database": "heroku_a3191a6a64f6f2a",
+        "host": "us-cdbr-east-04.cleardb.com",
+        "dialect": "mysql",
+        "port": "3306"
     }
 }
 

@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', router);
 
-app.set('port', process.env.PORT.trim() || 3000);
+app.set('port', process.env.PORT || 3000);
 
 
 
