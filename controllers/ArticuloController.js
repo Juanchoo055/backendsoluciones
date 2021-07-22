@@ -58,15 +58,6 @@ module.exports = {
             next(e);
         }
     },
-    mostrar : async(req, res, next) => {
-        try {
-            const re = await Articulo.findAll()
-            res.status(200).json(re)
-        } catch (error) {
-        res.status(500).json({ 'error' : 'Oops paso algo' })
-        next(error) 
-        }
-    }, 
 }
 
 

@@ -7,11 +7,8 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        references: { // User belongsTo Company 1:1
-          model: 'Categoria',
-          key: 'id'
-        }
-      },
+        },
+      
       codigo: {
         type: Sequelize.STRING
       },
