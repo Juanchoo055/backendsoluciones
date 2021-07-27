@@ -23,10 +23,10 @@ module.exports = {
         next(error) 
         }
     }, 
-    
-    update : async(req, res, next) => {
+    update: async(req, res) => {
         try {
-            const reg = await Articulo.update(req.body,{ where: { id: req.body.id } });
+            console.log(req.body.id);
+            const reg = await Articulo.update({codigo: req.body.codigo,nombre: req.body.nombre, imagen: req.body.imagen, precio: req.body.precio, categoriaId: req.body.categoriaId}, { where: { id: req.body.id } });
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
@@ -35,6 +35,7 @@ module.exports = {
             next(e);
         }
     },
+
     activate: async(req, res, next) => {
         try {
             console.log(req.body.id);
