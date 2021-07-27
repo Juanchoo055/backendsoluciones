@@ -26,7 +26,7 @@ module.exports = {
     
     update : async(req, res, next) => {
         try {
-            const reg = await Articulo.update({categoriaid: req.body.categoriaid, codigo: req.body.codigo, nombre: req.body.nombre, imagen: req.body.descripcion,precio: req.body.descripcion},{ where: { id: req.body.id } });
+            const reg = await Articulo.update(req.body,{ where: { id: req.body.id } });
             res.status(200).json(reg);
         } catch (e) {
             res.status(500).send({
